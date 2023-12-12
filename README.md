@@ -1,4 +1,4 @@
-# 직접 만들어보는 "yaksok.ts"
+# 직접 만들어보는 인터프리터
 
 [약속 프로그래밍 언어](http://yaksok.org/)의 타입스크립트 구현체인 [yaksok.ts](https://github.com/rycont/yaksok.ts)를 직접 만들어보는 튜토리얼입니다.
 
