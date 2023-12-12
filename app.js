@@ -11,6 +11,11 @@ const code = `
 `.trim()
 
 const tokens = tokenizer(code)
+console.log('토큰', tokens)
+
 const ast = parser(tokens)
+console.log('AST', ast)
 
 runAST(ast)
+
+// [다음: 더 알아보기](../finish.md)
