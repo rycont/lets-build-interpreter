@@ -16,15 +16,15 @@
 
 ```javascript
 [
-	VariableDeclaration {
+	SetVariable {
 		name: '키',
 		value: NumberValue { value: 170 },
     },
-    VariableDeclaration {
+    SetVariable {
         name: '몸무게',
         value: NumberValue { value: 60 },
     },
-    VariableDeclaration {
+    SetVariable {
         name: '비만도',
         value: BinaryCalculation {
             operator: DivisionOperator { },
@@ -72,9 +72,9 @@ Shift-Reduce 방식으로 파싱을 진행하는 과정을 살펴보겠습니다
 
 ### 규칙
 
-1. `Evaluatable`, `Operator`, `Evaluatable`은 `BinaryCalculation`으로 합친다.
-2. `Evaluatable`, `Token { value: "보여주기" }`는 `Print`로 합친다.
-3. `Variable`, `Keyword { value: ":" }`, `Evaluatable`은 `VariableDeclaration`으로 합친다.
+1. `Evaluable`, `Operator`, `Evaluable`은 `BinaryCalculation`으로 합친다.
+2. `Evaluable`, `Token { value: "보여주기" }`는 `Print`로 합친다.
+3. `Variable`, `Keyword { value: ":" }`, `Evaluable`은 `SetVariable`으로 합친다.
 
 ### 과정
 
@@ -91,7 +91,7 @@ Shift-Reduce 방식으로 파싱을 진행하는 과정을 살펴보겠습니다
 ---
 
 -   스택: `[ StringValue { value: "BMI는" }, Operator { value: "+" }, Variable { value: "BMI" } ]`
--   적용 가능한 규칙: 1번 규칙 (`Evaluatable`, `Operator`, `Evaluatable`은 `BinaryCalculation`으로 합친다)
+-   적용 가능한 규칙: 1번 규칙 (`Evaluable`, `Operator`, `Evaluable`은 `BinaryCalculation`으로 합친다)
 -   **Reduce**
 
 ---
@@ -103,7 +103,7 @@ Shift-Reduce 방식으로 파싱을 진행하는 과정을 살펴보겠습니다
 ---
 
 -   스택: `[ BinaryCalculation { ... }, Token { value: "보여주기" } ]`
--   적용 가능한 규칙: 2번 규칙(`Evaluatable`, `Token { value: "보여주기" }`는 `Print`로 합친다)
+-   적용 가능한 규칙: 2번 규칙(`Evaluable`, `Token { value: "보여주기" }`는 `Print`로 합친다)
 -   **Reduce**
 
 ---
